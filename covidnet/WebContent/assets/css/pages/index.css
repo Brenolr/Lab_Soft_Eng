@@ -1,0 +1,72 @@
+/*
+BANNER
+*/
+#banner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 80vh;
+  background-image: linear-gradient(45deg, rgba(100, 100, 255), #eee);
+  color: #222;
+  border-bottom: solid #222 20px;
+}
+#banner span {
+  font-weight: 900;
+  font-size: 7em;
+  font-family: sans-serif;
+}
+#banner span[data-color="covid"] {
+  color: #f12020;
+}
+#banner span[data-color="net"] {
+  color: #222;
+}
+
+/*
+CARDS
+*/
+.cards-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  min-height: 80vh;
+  background-color: #eee;
+}
+.cards-section .card {
+	display: inline-block;
+  width: 20%;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: #333;
+  transition: all 400ms ease;
+  cursor: pointer;
+  text-align: center;
+}
+@media (max-width: 800px) {
+  .cards-section {
+    flex-direction: column;
+  }
+   .cards-section .card{
+     width: 50%;
+     margin: 15px auto;
+  }
+}
+.cards-section .card h4 {
+  padding: 10px;
+  font-weight: 500;
+}
+.cards-section .card,a {
+	text-decoration: none;
+	color: inherit;
+}
+.cards-section .card:hover {
+  transform: scale(1.2);
+}
+.card .image-container {
+  width: 80%;
+  margin: 10px auto;
+  height: 220px;
+  background-color: pink;
+}
