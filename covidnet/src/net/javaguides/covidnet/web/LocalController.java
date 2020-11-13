@@ -76,9 +76,13 @@ public class LocalController extends HttpServlet {
 
 	public void deleteLocal(HttpServletRequest request, HttpServletResponse response) 
 			throws SQLException, IOException {
-		int id = Integer.parseInt(request.getParameter("id"));
-		localDAO.deleteLocal(id);
-		response.sendRedirect("list-local");
+		String id = request.getParameter("id");
+		int deleted = localDAO.deleteLocal(id);
+		if(deleted > 0) {
+			response.sendRedirect("list-patient?message=Local removido com sucesso!");
+		} else if(deleted == -1) {
+			response.sendRedirect("list-patient?message=Nao eh possivel remover este local no momento, pois ha pacientes aqui.");
+		}
 
 	}
 

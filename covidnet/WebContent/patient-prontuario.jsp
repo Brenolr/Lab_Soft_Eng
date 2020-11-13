@@ -3,11 +3,11 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
-	<title>Formulário de paciente</title>
+	<title>Prontuário de paciente</title>
 </head>
 <body>
 	<center>
-		<h1>Formulário de paciente</h1>
+		<h1>Prontuário de paciente</h1>
         <h2>
 
         	<a href="list-patient">Listar todos os pacientes</a>
@@ -15,21 +15,23 @@
         </h2>
 	</center>
     <div align="center">
-		<c:if test="${patient != null}">
-			<form action="update-patient" method="post">
+<%-- 		<c:if test="${patient != null}">
+			
         </c:if>
         <c:if test="${patient == null}">
 			<form action="insert-patient" method="post">
-        </c:if>
+        </c:if> --%>
+        <form action="update-patient" method="post">
         <table border="1" cellpadding="5">
             <caption>
             	<h2>
-            		<c:if test="${patient != null}">
+            		Editar prontuário de paciente
+            		<%-- <c:if test="${patient != null}">
             			Editar paciente
             		</c:if>
             		<c:if test="${patient == null}">
             			Adicionar novo paciente
-            		</c:if>
+            		</c:if> --%>
             	</h2>
             </caption>
         		<c:if test="${patient != null}">

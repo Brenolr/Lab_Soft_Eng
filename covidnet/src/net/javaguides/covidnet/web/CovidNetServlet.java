@@ -61,6 +61,9 @@ public class CovidNetServlet extends HttpServlet {
 			case "/edit-patient":
 				patientController.showPatientEditForm(request, response);
 				break;
+			case "/edit-prontuario":
+				patientController.showProntuarioEditForm(request, response);
+				break;
 			case "/update-patient":
 				patientController.updatePatient(request, response);
 				break;

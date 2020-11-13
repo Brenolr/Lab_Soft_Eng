@@ -22,7 +22,7 @@ public class PatientDAO2 extends BaseDAO{
 	private static final String SELECT_ALL_PATIENTS = "select * from Pacientes";
 	private static final String DELETE_PATIENTS_SQL = "delete from Pacientes where id = ?;";
 	private static final String UPDATE_PATIENTS_SQL = "update Pacientes set nome = ?,email = ?, cpf = ?, sintomas = ?, id_prontuario = ?, id_localDeAtendimento = ?, gravidade = ?, telefone = ? where id = ?;";
-
+	
 	public PatientDAO2() {
 	}
 
@@ -122,12 +122,15 @@ public class PatientDAO2 extends BaseDAO{
 		return patients;
 	}
 
-	public boolean deletePatient(String id) throws SQLException {
-		boolean rowDeleted;
+	public int deletePatient(String id) throws SQLException {
+		int rowDeleted = 0;
 		try (Connection connection = getConnection();
 				PreparedStatement statement = connection.prepareStatement(DELETE_PATIENTS_SQL);) {
 			statement.setString(1, id);
-			rowDeleted = statement.executeUpdate() > 0;
+			try {
+				rowDeleted = statement.executeUpdate();
+			} catch(SQLException e) {}
+				rowDeleted = -1;
 		}
 		return rowDeleted;
 	}
@@ -136,4 +139,6 @@ public class PatientDAO2 extends BaseDAO{
 		System.out.println(UPDATE_PATIENTS_SQL);
 		performPatientQuery(patient, UPDATE_PATIENTS_SQL, true);
 	}
+	
+	
 }

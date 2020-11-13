@@ -62,7 +62,7 @@
               class="error_color"
             ></p>
             <p
-            	displat="none"
+            	display="none"
             	id="backend_errorMessage"
             	class="error_color"
             ></p>

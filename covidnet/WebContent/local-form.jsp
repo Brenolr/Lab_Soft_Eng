@@ -3,18 +3,16 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
-	<title>Local Management Application</title>
+	<title>Locais de Atendimento</title>
 </head>
 <body>
 	<center>
-		<h1>Local Management</h1>
+		<h1>Locais de Atendimento</h1>
         <h2>
-        	<a href="new-local">Add New Local</a>
-        	&nbsp;&nbsp;&nbsp;
-        	<a href="list-local">List All Locals</a>
-        	
+        	<a href="list-local">Listar locais</a>
         </h2>
 	</center>
+	
     <div align="center">
 		<c:if test="${local != null}">
 			<form action="update-local" method="post">
@@ -29,7 +27,7 @@
             			Edit Local
             		</c:if>
             		<c:if test="${local == null}">
-            			Add New local
+            			Adicionar local de atendimento
             		</c:if>
             	</h2>
             </caption>
