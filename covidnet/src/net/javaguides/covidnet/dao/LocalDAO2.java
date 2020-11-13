@@ -105,12 +105,15 @@ public class LocalDAO2 extends BaseDAO{
 		return locals;
 	}
 
-	public boolean deleteLocal(int id) throws SQLException {
-		boolean rowDeleted;
+	public int deleteLocal(String id) throws SQLException {
+		int rowDeleted;
 		try (Connection connection = getConnection();
 				PreparedStatement statement = connection.prepareStatement(DELETE_LOCALS_SQL);) {
-			statement.setInt(1, id);
-			rowDeleted = statement.executeUpdate() > 0;
+			statement.setString(1, id);
+			try {
+				rowDeleted = statement.executeUpdate();
+			} catch(SQLException e) {}
+				rowDeleted = -1;
 		}
 		return rowDeleted;
 	}

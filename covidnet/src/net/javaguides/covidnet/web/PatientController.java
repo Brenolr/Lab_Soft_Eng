@@ -54,6 +54,16 @@ public class PatientController {
 
 	}
 	
+	public void showProntuarioEditForm(HttpServletRequest request, HttpServletResponse response)
+			throws SQLException, ServletException, IOException {
+		int id = Integer.parseInt(request.getParameter("id"));
+		Patient existingPatient = patientDAO.selectPatient(id);
+		request = setOtherParameters(request);
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/patient-form.jsp");
+		request.setAttribute("patient", existingPatient);
+		dispatcher.forward(request, response);
+	}
+	
 	private Patient getPatientFromRequest(HttpServletRequest request) {
 		// For when optional parameters are added.
 		/*Map<String, Boolean> parameters = new HashMap<String, Boolean>(); 
@@ -108,8 +118,12 @@ public class PatientController {
 	public void deletePatient(HttpServletRequest request, HttpServletResponse response) 
 			throws SQLException, IOException {
 		String id = request.getParameter("id");
-		patientDAO.deletePatient(id);
-		response.sendRedirect("list-patient?message=Paciente%20deletado%20com%20sucesso!");
+		int deleted = patientDAO.deletePatient(id);
+		if(deleted > 0) {
+			response.sendRedirect("list-patient?message=Paciente removido com sucesso!");
+		} else if(deleted == -1) {
+			response.sendRedirect("list-patient?message=Nao eh possivel remover este paciente. Por favor, remova sua solicitacao de transferencia primeiro.");
+		}
 	}
 	
 }

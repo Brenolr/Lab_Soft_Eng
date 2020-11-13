@@ -9,7 +9,7 @@
 	<center>
 		<h1>Gerência de Solicitações</h1>
         <h2>
-        	<a href="new-transfer">Solicitar nova transferência</a>
+
         	&nbsp;&nbsp;&nbsp;
         	<a href="list-transfer">Listar solicitações</a>
         	

@@ -7,23 +7,28 @@
 	<style><%@include file="assets/css/header.css"%></style>
    	<style><%@include file="assets/css/footer.css"%></style>
 	<style><%@include file="assets/css/global.css"%></style>
+	   	<style><%@include file="assets/css/form.css"%></style>
 	<script src="https://kit.fontawesome.com/a076d05399.js"></script>
 </head>
 <body>
 	<!-- Header -->
     <site-header></site-header>
-
-		<h1>Local Management</h1>
+	<center>
+		<h1>Locais de Atendimento</h1>
         <h2>
-        	<a href="new-local">Add New Local</a>
+        	<a href="new-local">Adicionar Local de Atendimento</a>
         	&nbsp;&nbsp;&nbsp;
-        	<a href="list-local">List All Locals</a>
-        	
         </h2>
-<section id="form-section">
+         <p
+        	display="none"
+        	id="backend_errorMessage"
+        	class="error_color"
+        ></p>
+  	<center>
+	<section id="form-section">
     <div align="center">
         <table border="1" cellpadding="5">
-            <caption><h2>List of Locals</h2></caption>
+            <caption><h2>Locais de Atendimento</h2></caption>
             <tr>
                 <th>ID</th>
                 <th>Name</th>
@@ -52,5 +57,6 @@
         <site-footer></site-footer>
     <script><%@include file="js/footer.js"%></script>
     <script><%@include file="js/header.js"%></script>
+        <script><%@include file="js/pages/list.js"%></script>
 </body>
 </html>
