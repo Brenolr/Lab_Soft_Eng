@@ -8,3 +8,7 @@
 .page {
   background-color: #eee;
 }
+
+#form-section {
+	height: 80vh;
+}

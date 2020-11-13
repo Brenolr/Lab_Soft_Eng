@@ -4,9 +4,15 @@
 <html>
 <head>
 	<title>Local Management Application</title>
+	<style><%@include file="assets/css/header.css"%></style>
+   	<style><%@include file="assets/css/footer.css"%></style>
+	<style><%@include file="assets/css/global.css"%></style>
+	<script src="https://kit.fontawesome.com/a076d05399.js"></script>
 </head>
 <body>
-	<center>
+	<!-- Header -->
+    <site-header></site-header>
+
 		<h1>Local Management</h1>
         <h2>
         	<a href="new-local">Add New Local</a>
@@ -14,7 +20,7 @@
         	<a href="list-local">List All Locals</a>
         	
         </h2>
-	</center>
+<section id="form-section">
     <div align="center">
         <table border="1" cellpadding="5">
             <caption><h2>List of Locals</h2></caption>
@@ -42,5 +48,9 @@
             </c:forEach>
         </table>
     </div>	
+        </section>
+        <site-footer></site-footer>
+    <script><%@include file="js/footer.js"%></script>
+    <script><%@include file="js/header.js"%></script>
 </body>
 </html>

@@ -61,6 +61,11 @@
               id="password_errorMessage"
               class="error_color"
             ></p>
+            <p
+            	displat="none"
+            	id="backend_errorMessage"
+            	class="error_color"
+            ></p>
             <button class="mdc-button mdc-button--raised" type="submit">
               <span class="mdc-button__ripple"></span>Login
             </button>
@@ -73,6 +78,6 @@
     <script><%@include file="js/header.js"%></script>
     <script><%@include file="js/form-helpers.js"%></script>
     <script><%@include file="js/form-validators.js"%></script>
-    <script><%@include file="js/login.js"%></script>
+    <script><%@include file="js/pages/login.js"%></script>
   </body>
 </html>

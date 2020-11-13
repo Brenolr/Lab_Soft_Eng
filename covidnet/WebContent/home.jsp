@@ -15,7 +15,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1, user-scalable=no"
     />
-  
+    <script ><%@include file="js/pages/home.js"%></script>
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
   </head>
 
@@ -33,17 +33,17 @@
 
     <section>
       <div class="cards-section">
-        <a href="list-patient" class="card">
+        <a onClick={checkPrivateLink('list-patient')} class="card">
           <div class="image-container"></div>
           <h4>Paciente</h4>
         </a>
       
-        <a href="list-local" class="card">
+        <a onClick={checkPrivateLink('list-local')} class="card">
           <div class="image-container"></div>
           <h4>Local de Atendimento</h4>
         </a>
       
-        <a href="list-transfer" class="card">
+        <a onClick={checkPrivateLink('list-transfer')} class="card">
           <div class="image-container"></div>
           <h4>Transferência</h4>
         </a>

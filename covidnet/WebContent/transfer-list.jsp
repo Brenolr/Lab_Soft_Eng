@@ -4,9 +4,15 @@
 <html>
 <head>
 	<title>Gerência de Solicitações</title>
+	   	<style><%@include file="assets/css/header.css"%></style>
+   	<style><%@include file="assets/css/footer.css"%></style>
+   	   	   	<style><%@include file="assets/css/global.css"%></style>
+   	   	   	    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 </head>
 <body>
-	<center>
+<!-- Header -->
+    <site-header></site-header>
+
 		<h1>Gerência de Solicitações</h1>
         <h2>
         	<a href="new-transfer">Solicitar nova transferência</a>
@@ -14,7 +20,7 @@
         	<a href="list-transfer">Listar solicitações</a>
         	
         </h2>
-	</center>
+<section id="form-section">
     <div align="center">
         <table border="1" cellpadding="5">
             <caption><h2>Lista de solicitações</h2></caption>
@@ -48,6 +54,10 @@
                 </tr>
             </c:forEach>
         </table>
-    </div>	
+    </div>
+        </section>
+        <site-footer></site-footer>
+    <script><%@include file="js/footer.js"%></script>
+    <script><%@include file="js/header.js"%></script>	
 </body>
 </html>

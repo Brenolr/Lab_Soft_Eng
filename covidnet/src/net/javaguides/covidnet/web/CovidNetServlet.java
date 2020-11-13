@@ -115,14 +115,14 @@ public class CovidNetServlet extends HttpServlet {
 				break;
 				
 			// General
-			case "/home-authorized":
-				homePage(request, response);
+			case "/login":
+				loginController.loginPage(request, response);
 				break;
 			case "/validate-login":
 				loginController.validate(request, response);
 				break;
 			default:
-				loginController.loginPage(request, response);
+				homePage(request, response);
 				break;
 			}
 		} catch (SQLException ex) {

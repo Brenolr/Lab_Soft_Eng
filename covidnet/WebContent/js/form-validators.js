@@ -36,11 +36,11 @@ const validatePassword = (required) => {
     addError("password", "Favor inserir uma senha");
     return false;
   }
-  if (passwordElement.value.length >= 6) {
+  if (passwordElement.value.length >= 4) {
     removeError("password");
     return true;
   }
-  addError("password", "A senha deve ter 6 caracteres ou mais");
+  addError("password", "A senha deve ter 4 caracteres ou mais");
   return false;
 };
 
