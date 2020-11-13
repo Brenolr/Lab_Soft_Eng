@@ -14,13 +14,13 @@ import net.javaguides.covidnet.dao.BaseDAO;
 public class LocalDAO2 extends BaseDAO{
 	
 
-	private static final String INSERT_LOCALS_SQL = "INSERT INTO Locais_de_Atendimento" + "  (nome, endereco, camas_disponiveis, camas_ocupadas) VALUES "
-			+ " (?, ?, ?, ?);";
+	private static final String INSERT_LOCALS_SQL = "INSERT INTO Locais_de_Atendimento" + "  (nome, endereco, camas_disponiveis, camas_ocupadas, latitude, longitude) VALUES "
+			+ " (?, ?, ?, ?, ?, ?);";
 
 	private static final String SELECT_LOCAL_BY_ID = "select id, nome, endereco, camas_disponiveis, camas_ocupadas from Locais_de_Atendimento where id =?";
 	private static final String SELECT_ALL_LOCALS = "select * from Locais_de_Atendimento";
 	private static final String DELETE_LOCALS_SQL = "delete from Locais_de_Atendimento where id = ?;";
-	private static final String UPDATE_LOCALS_SQL = "update Locais_de_Atendimento set nome = ?, endereco = ?, camas_disponiveis = ?, camas_ocupadas = ? where id = ?;";
+	private static final String UPDATE_LOCALS_SQL = "update Locais_de_Atendimento set nome = ?, endereco = ?, camas_disponiveis = ?, camas_ocupadas = ?, latitude = ?, longitude = ?  where id = ?;";
 
 	public LocalDAO2() {
 	}
@@ -34,8 +34,10 @@ public class LocalDAO2 extends BaseDAO{
 			preparedStatement.setString(2, local.getEndereco());
 			preparedStatement.setString(3, Integer.toString(local.getCamas_disponiveis()));
 			preparedStatement.setString(4, Integer.toString(local.getCamas_ocupadas()));
+			preparedStatement.setString(5, Integer.toString(local.getLatitude()));
+			preparedStatement.setString(6, Integer.toString(local.getLongitude()));
 			if(id) {
-				preparedStatement.setInt(5, local.getId());
+				preparedStatement.setInt(7, local.getId());
 			}
 			System.out.println(preparedStatement);
 			preparedStatement.executeUpdate();
@@ -44,7 +46,7 @@ public class LocalDAO2 extends BaseDAO{
 		}
 	}
 	public void insertLocal(Local local) throws SQLException {
-		System.out.println(INSERT_LOCALS_SQL);
+		System.out.println(INSERT_LOCALS_SQL);	
 		performLocalQuery(local, INSERT_LOCALS_SQL, false);
 	}
 

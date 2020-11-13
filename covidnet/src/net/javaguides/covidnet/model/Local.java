@@ -7,10 +7,9 @@ public class Local {
 	protected String endereco;
 	protected int camas_disponiveis;
 	protected int camas_ocupadas;
+	protected int latitude;
+	protected int longitude;
 	
-	public Local() {
-	}
-
 
 	public Local(String name, String address, int Av_beds, int Oc_beds) {
 		super();
@@ -18,6 +17,7 @@ public class Local {
 		this.endereco = address;
 		this.camas_disponiveis = Av_beds;
 		this.camas_ocupadas = Oc_beds;
+		this.getCoor();
 	}
 
 	public Local(int id, String name, String address, int Av_beds, int Oc_beds) {
@@ -27,6 +27,16 @@ public class Local {
 		this.endereco = address;
 		this.camas_disponiveis = Av_beds;
 		this.camas_ocupadas = Oc_beds;
+		this.getCoor();
+	}
+	
+	private void getCoor() {
+		
+		GoogleMapsFake google = new GoogleMapsFake();
+		Coordenadas coor = google.getCordenadas(endereco);
+		latitude = coor.getLatitude();
+		longitude = coor.getLongitude();
+		
 	}
 
 	public int getId() {
@@ -47,6 +57,7 @@ public class Local {
 
 	public void setEndereco(String endereco) {
 		this.endereco = endereco;
+		this.getCoor();
 	}
 
 	public int getCamas_disponiveis() {
@@ -63,6 +74,13 @@ public class Local {
 	
 	public void setCamas_ocupadas(int camas_ocupadas) {
 		this.camas_ocupadas = camas_ocupadas;
+	}
+	
+	public int getLatitude() {
+		return latitude;
+	}
+	public int getLongitude() {
+		return longitude;
 	}
 }
 
